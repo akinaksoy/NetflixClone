@@ -28,6 +28,7 @@ class MainTabBarViewController: UITabBarController {
         searchVC.title = "Top Search"
         downloadVC.title = "Downloads"
         
+        tabBar.tintColor = .label
         
         setViewControllers([homeVC,upComVC,searchVC,downloadVC], animated: true)
     }
