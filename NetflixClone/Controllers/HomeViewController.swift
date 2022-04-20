@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     
-    let sectionTitles : [String] = ["Trending Movies","Popular","Trending Tv","Upcoming Movies","Top Rated"]
+    let sectionTitles : [String] = ["Trending Movies","Trending Tv","Popular","Upcoming Movies","Top Rated"]
     
     //Table Register
     private let homeFeedTable : UITableView = {
@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
         
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
+        getTrendingMovies()
         
         configureNavbar()
         
@@ -53,6 +54,20 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
        
     }
+    
+    
+    
+    private func getTrendingMovies(){
+        APICaller.shared.getTrendingMovies { results in
+            switch results {
+            case .success(let movies):
+                print(movies)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
 }
 
 
