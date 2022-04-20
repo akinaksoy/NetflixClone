@@ -20,11 +20,11 @@ class APICaller {
     static let shared = APICaller()
     
     
-    
+    // istenilen kategoriye ait istek atmak için
     func getTrendingMovies(completition: @escaping (Result<[Title],Error>) -> Void) {
         
         guard let url = URL(string: "\(Constants.baseURL)3/trending/movie/day?api_key=\(Constants.API_Key)") else {return}
-        
+        // istek atılıp results un döndügü yer
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
             guard let data = data, error == nil else {
                 return

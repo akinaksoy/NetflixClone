@@ -12,7 +12,7 @@ struct TrendingTitleResponse : Codable{
 }
 
 struct Title : Codable {
-    
+    //API deki JSon ile aynı olmalılar
     let id : Int
     let media_type : String?
     let original_name : String?
