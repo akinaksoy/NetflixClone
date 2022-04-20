@@ -9,7 +9,7 @@ import UIKit
 
 class HeroHeaderUIView: UIView {
 
-    
+    // Button Designs
     private let downloadButton: UIButton = {
         let button = UIButton()
         button.setTitle("Download", for: .normal)
@@ -29,7 +29,7 @@ class HeroHeaderUIView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
+    // Ana sayfa Image Design
     private let heroImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -37,7 +37,7 @@ class HeroHeaderUIView: UIView {
         imageView.image = UIImage(named: "heroImage")
         return imageView
     }()
-    
+    //Butonların lokasyonunu yapma
     private func applyConstraints(){
         let playButtonContraints = [
             // telefon diline göre ayarlama yapılıyor.
@@ -65,7 +65,7 @@ class HeroHeaderUIView: UIView {
         gradientLayer.frame = bounds
         layer.addSublayer(gradientLayer)
     }
-    
+    // Yapılan Designların çağrılması
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(heroImageView)
