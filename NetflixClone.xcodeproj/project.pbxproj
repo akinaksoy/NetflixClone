@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F0749B72810323E00577DDC /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0749B62810323E00577DDC /* HeroHeaderUIView.swift */; };
+		1F0749B928108D8700577DDC /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0749B828108D8700577DDC /* APICaller.swift */; };
 		1F46FA02280F36BE00C59E39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46FA01280F36BE00C59E39 /* AppDelegate.swift */; };
 		1F46FA04280F36BE00C59E39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46FA03280F36BE00C59E39 /* SceneDelegate.swift */; };
 		1F46FA06280F36BE00C59E39 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46FA05280F36BE00C59E39 /* MainTabBarViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		1F0749B62810323E00577DDC /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
+		1F0749B828108D8700577DDC /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		1F46F9FE280F36BE00C59E39 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F46FA01280F36BE00C59E39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F46FA03280F36BE00C59E39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		1F46FA23280F403100C59E39 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				1F0749B828108D8700577DDC /* APICaller.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				1F46FA1B280F391700C59E39 /* SearchViewController.swift in Sources */,
 				1F46FA06280F36BE00C59E39 /* MainTabBarViewController.swift in Sources */,
 				1F46FA25280F406A00C59E39 /* CollectionViewTableViewCell.swift in Sources */,
+				1F0749B928108D8700577DDC /* APICaller.swift in Sources */,
 				1F0749B72810323E00577DDC /* HeroHeaderUIView.swift in Sources */,
 				1F46FA02280F36BE00C59E39 /* AppDelegate.swift in Sources */,
 				1F46FA1D280F393000C59E39 /* DownloadViewController.swift in Sources */,
