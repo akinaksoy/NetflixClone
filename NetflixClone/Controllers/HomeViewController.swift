@@ -28,8 +28,8 @@ class HomeViewController: UIViewController {
         
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
-        getTrendingMovies()
-        
+        //getTrendingMovies()
+        fetchData()
         configureNavbar()
         
         //tablein header view kısmı
@@ -67,7 +67,11 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
+    private func fetchData(){
+        APICaller.shared.getTopRated { results in
+            
+        }
+    }
 }
 
 
@@ -103,6 +107,7 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20 , y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .white
+       
     }
     // tableviewlerin textlerinin oldugu yer
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
