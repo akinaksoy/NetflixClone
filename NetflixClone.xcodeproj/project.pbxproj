@@ -24,6 +24,8 @@
 		1F982E8B2811CEF8002F73DB /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F982E8A2811CEF8002F73DB /* TitleCollectionViewCell.swift */; };
 		1F982E8E2811CFE3002F73DB /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1F982E8D2811CFE3002F73DB /* SDWebImage */; };
 		1F982E902811CFE3002F73DB /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1F982E8F2811CFE3002F73DB /* SDWebImageMapKit */; };
+		1F982E942811DEDF002F73DB /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F982E932811DEDF002F73DB /* TitleTableViewCell.swift */; };
+		1F982E962811E100002F73DB /* UpcomingTitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F982E952811E100002F73DB /* UpcomingTitleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		1F46FA1C280F393000C59E39 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		1F46FA24280F406A00C59E39 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		1F982E8A2811CEF8002F73DB /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F982E932811DEDF002F73DB /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		1F982E952811E100002F73DB /* UpcomingTitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingTitleViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +112,8 @@
 		1F46FA1E280F3FF800C59E39 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1F46FA24280F406A00C59E39 /* CollectionViewTableViewCell.swift */,
-				1F0749B62810323E00577DDC /* HeroHeaderUIView.swift */,
-				1F982E8A2811CEF8002F73DB /* TitleCollectionViewCell.swift */,
+				1F982E922811DEC4002F73DB /* Upcoming */,
+				1F982E912811DEAF002F73DB /* Home */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,6 +121,7 @@
 		1F46FA20280F401000C59E39 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				1F982E952811E100002F73DB /* UpcomingTitleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -144,6 +148,24 @@
 				1F0749B828108D8700577DDC /* APICaller.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		1F982E912811DEAF002F73DB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1F46FA24280F406A00C59E39 /* CollectionViewTableViewCell.swift */,
+				1F0749B62810323E00577DDC /* HeroHeaderUIView.swift */,
+				1F982E8A2811CEF8002F73DB /* TitleCollectionViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1F982E922811DEC4002F73DB /* Upcoming */ = {
+			isa = PBXGroup;
+			children = (
+				1F982E932811DEDF002F73DB /* TitleTableViewCell.swift */,
+			);
+			path = Upcoming;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F982E942811DEDF002F73DB /* TitleTableViewCell.swift in Sources */,
 				1F46FA1B280F391700C59E39 /* SearchViewController.swift in Sources */,
 				1F982E8B2811CEF8002F73DB /* TitleCollectionViewCell.swift in Sources */,
 				1F46FA06280F36BE00C59E39 /* MainTabBarViewController.swift in Sources */,
@@ -231,6 +254,7 @@
 				1F0749B72810323E00577DDC /* HeroHeaderUIView.swift in Sources */,
 				1F46FA02280F36BE00C59E39 /* AppDelegate.swift in Sources */,
 				1F46FA1D280F393000C59E39 /* DownloadViewController.swift in Sources */,
+				1F982E962811E100002F73DB /* UpcomingTitleViewModel.swift in Sources */,
 				1F0749BD2810989A00577DDC /* Extensions.swift in Sources */,
 				1F46FA19280F390000C59E39 /* UpComingViewController.swift in Sources */,
 				1F46FA04280F36BE00C59E39 /* SceneDelegate.swift in Sources */,
