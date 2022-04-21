@@ -13,7 +13,7 @@ class TitleCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "TitleCollectionViewCell"
     
-    
+    // imageview tasarımı eklendi
     private let posterImageView : UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -34,7 +34,7 @@ class TitleCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         posterImageView.frame = contentView.bounds
     }
-    
+    // URL den gelen image celle aktarıldı.
     public func configure(with model : String){
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(model)") else {return}
         posterImageView.sd_setImage(with: url, completed: nil)

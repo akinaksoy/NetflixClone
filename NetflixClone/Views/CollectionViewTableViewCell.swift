@@ -10,7 +10,7 @@ import UIKit
 class CollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "CollectionViewTableViewCell"
-    
+    // Title listesi oluşturuldu
     private var titles : [Title] = [Title]()
     
     // collection view table tasarımı (horizontal)
@@ -18,8 +18,8 @@ class CollectionViewTableViewCell: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         // her image viewin görüntüsü
         layout.itemSize = CGSize(width: 140, height: 200)
-        
         layout.scrollDirection = .horizontal
+        // Collection View görünümü TittleCollectionView den çağrıldı.
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
         return collectionView
@@ -42,7 +42,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         super.layoutSubviews()
         collectionView.frame = contentView.bounds
     }
-    
+    // Title listesinden gelen titlelar ile senkronize veri çekilecek şekilde configure edildi.
     public func configure(with titles : [Title]) {
         self.titles = titles
         DispatchQueue.main.async {
@@ -56,10 +56,13 @@ class CollectionViewTableViewCell: UITableViewCell {
 extension CollectionViewTableViewCell : UICollectionViewDelegate,UICollectionViewDataSource {
     // collection view table tasarımı (horizontal)
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //Cell yapısı collectionview olarak titlecollectionviewden oluşturuldu
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
             return UICollectionViewCell()
         }
+        // titlesdan gelen verilerin mevcut indexpath üzerinden posteri çekildi
         guard let model = titles[indexPath.row].poster_path else {return UICollectionViewCell()}
+        // celle çekilmek istenen photonun url'i gönderildi.
         cell.configure(with: model)
         return cell
     }
