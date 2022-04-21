@@ -10,5 +10,6 @@ import Foundation
 struct UpcomingTitleViewModel {
     let titleName : String
     let posterURL : String
+    let releaseDate : String
     
 }

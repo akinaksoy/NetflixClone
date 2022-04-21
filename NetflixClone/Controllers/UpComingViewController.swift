@@ -38,7 +38,7 @@ class UpComingViewController: UIViewController {
         super.viewDidLayoutSubviews()
         upComingTable.frame = view.bounds
     }
-    
+    // titlelar(movies) dizisi olusturuluyor
     private func fetchUpcoming(){
         APICaller.shared.getUpcomingMovie { result in
             switch result {
@@ -66,7 +66,8 @@ extension UpComingViewController : UITableViewDelegate , UITableViewDataSource {
         }
         
         let title = titles[indexPath.row]
-        cell.configure(with: UpcomingTitleViewModel(titleName: title.original_title ?? title.original_name ?? "unknown" , posterURL: title.poster_path ?? "unknown"))
+        // doldurulan title dizisinde gerekli olan datalar view modele aktarılıyor.
+        cell.configure(with: UpcomingTitleViewModel(titleName: title.original_title ?? title.original_name ?? "unknown" , posterURL: title.poster_path ?? "unknown" ,releaseDate: title.release_date ?? "Coming soon"))
         return cell
     }
     
