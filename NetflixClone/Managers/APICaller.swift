@@ -131,16 +131,17 @@ class APICaller {
     }
     
     
-    func getYoutubeVideo(with query : String) {
+    func getYoutubeVideo(with query : String, completition: @escaping (Result<VideoElement,Error>) -> Void) {
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return}
         guard let url = URL(string: "\(Constants.youtubeBase_URL)/v3/search?q=\(query)&key=\(Constants.youtubeAPI_Key)") else {return}
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
             guard let data = data, error == nil else {return}
             do{
-                let results = try JSONSerialization.jsonObject(with: data,options: .fragmentsAllowed)
-                print(results)
+                let results = try JSONDecoder().decode(YoutubeSearchResponse.self, from: data)
+                completition(.success(results.items[0]))
             }catch{
+                completition(.failure(error))
                 print(error.localizedDescription)
             }
         }
