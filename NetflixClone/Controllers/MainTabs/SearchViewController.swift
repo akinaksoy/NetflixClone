@@ -18,7 +18,7 @@ class SearchViewController: UIViewController {
      }()
     
     private let searchController : UISearchController = {
-        
+        //Search bar olusturuldu ve design placeholder gibi degerler girildi.
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
         controller.searchBar.placeholder = "Search Movie or Tv Show"
         controller.searchBar.searchBarStyle = .minimal
@@ -36,7 +36,7 @@ class SearchViewController: UIViewController {
         view.addSubview(discoverTable)
         discoverTable.delegate = self
         discoverTable.dataSource = self
-        
+        // Search bar navigation a eklendi
         navigationItem.searchController = searchController
         navigationController?.navigationBar.tintColor = .white
         searchController.searchResultsUpdater = self
@@ -89,14 +89,14 @@ extension SearchViewController : UITableViewDelegate,UITableViewDataSource {
 extension SearchViewController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
-        
+        // Searchbar a yazılan textin kontrolü yapıldı
         guard let query = searchBar.text,
               !query.trimmingCharacters(in: .whitespaces).isEmpty,
               query.trimmingCharacters(in: .whitespaces).count >= 3,
               let resultsController = searchController.searchResultsController as? SearchResultsViewController else {
             return
         }
-        print(query)
+        // Eğer query gerekli kuralları saglıyorsa arama yapıyor
         APICaller.shared.searchQuery(with: query) { results in
             DispatchQueue.main.async {
                 switch results {

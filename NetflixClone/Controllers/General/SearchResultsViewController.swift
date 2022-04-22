@@ -11,6 +11,7 @@ class SearchResultsViewController: UIViewController {
 
     public var titles : [Title] = [Title]()
     
+    // dönen resultların cellerinin boyutları ve designi ayarlandı
     public let searchResultCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width/3 - 10 , height: 200)
