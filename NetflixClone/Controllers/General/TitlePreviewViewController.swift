@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 class TitlePreviewViewController: UIViewController {
-
+    // Itemların tasarımı yapıldı
     private let titleLabel : UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +58,7 @@ class TitlePreviewViewController: UIViewController {
         
         configureConstraints()
     }
-    
+    // İtemların yerleri ayarlandı
     func configureConstraints () {
         let webViewConstraints = [
             webView.topAnchor.constraint(equalTo:view.topAnchor, constant: 100),
@@ -90,7 +90,7 @@ class TitlePreviewViewController: UIViewController {
         NSLayoutConstraint.activate(overviewLabelConstraints)
         NSLayoutConstraint.activate(downloadButtonConstraints)
     }
-    
+    // Modeldeki veriler içeri aktarıldı
     func configure(with model: TitlePreviewViewModel) {
         titleLabel.text = model.title
         overviewLabel.text = model.titleOverview

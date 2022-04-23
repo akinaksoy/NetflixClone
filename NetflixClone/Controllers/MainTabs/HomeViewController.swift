@@ -168,7 +168,7 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
     }
     
 }
-
+// tıklanıldıgı zaman veriler cagrılarak new controller cagrıldı
 extension HomeViewController : CollectionViewTableViewCellDelegate {
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, view: TitlePreviewViewModel) {
         DispatchQueue.main.async { [weak self ] in

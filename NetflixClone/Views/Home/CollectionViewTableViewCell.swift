@@ -88,6 +88,7 @@ extension CollectionViewTableViewCell : UICollectionViewDelegate,UICollectionVie
         APICaller.shared.getYoutubeVideo(with: titleName + " trailer") { [weak self] result in
             switch result {
             case .success(let videoElement):
+                // apiden gelen istek ile beraber sınıfa iletilecek veriler modele aktarıldı.
                 let title = self?.titles[indexPath.row]
                 guard let strongSelf = self else {
                     return
