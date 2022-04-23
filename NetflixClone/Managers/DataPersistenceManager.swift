@@ -14,6 +14,7 @@ class DataPersistenceManager {
     enum DatabaseError : Error {
         case failedToSaveData
         case failedToFetchData
+        case failedToDeleteData
     }
     
     
@@ -61,6 +62,20 @@ class DataPersistenceManager {
             completion(.success(titles))
         }catch{
             completion(.failure(DatabaseError.failedToFetchData))
+        }
+    }
+    
+    func deleteTitle(model: TitleItem,completion: @escaping(Result<Void,Error>)->Void){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let context = appDelegate.persistentContainer.viewContext
+        context.delete(model) // silmek için dbye istek atıyor
+        do{
+            try context.save()//silmeyi confirmliyor
+            completion(.success(()))
+        }catch{
+            completion(.failure(DatabaseError.failedToDeleteData))
         }
     }
     
