@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol CollectionViewTableViewCellDelegate : AnyObject {
+    func collectionViewTableViewCellDidTapCell(_ cell : CollectionViewTableViewCell, view:TitlePreviewViewModel)
+}
+
+
 class CollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "CollectionViewTableViewCell"
     // Title listesi oluşturuldu
     private var titles : [Title] = [Title]()
+    weak var delegate : CollectionViewTableViewCellDelegate?
     
     // collection view table tasarımı (horizontal)
     private let collectionView : UICollectionView = {
@@ -79,10 +85,15 @@ extension CollectionViewTableViewCell : UICollectionViewDelegate,UICollectionVie
             return
         }
         
-        APICaller.shared.getYoutubeVideo(with: titleName + " trailer") { result in
+        APICaller.shared.getYoutubeVideo(with: titleName + " trailer") { [weak self] result in
             switch result {
             case .success(let videoElement):
-                print(videoElement.id)
+                let title = self?.titles[indexPath.row]
+                guard let strongSelf = self else {
+                    return
+                }
+                let viewModel = TitlePreviewViewModel(title: title?.original_title ?? title?.original_name ?? "Unknown", youtubeView: videoElement, titleOverview: title?.overview ?? "...")
+                self?.delegate?.collectionViewTableViewCellDidTapCell(strongSelf, view: viewModel)
             case .failure(let error):
                 print(error.localizedDescription)
             }

@@ -85,6 +85,7 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        cell.delegate = self
         
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue :
@@ -166,4 +167,15 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
         navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
     
+}
+
+extension HomeViewController : CollectionViewTableViewCellDelegate {
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, view: TitlePreviewViewModel) {
+        DispatchQueue.main.async { [weak self ] in
+            let vc = TitlePreviewViewController()
+            vc.configure(with: view)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
 }
