@@ -23,10 +23,33 @@ class DownloadViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Downloads"
+        view.addSubview(downloadTable)
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         downloadTable.delegate = self
         downloadTable.dataSource = self
+        fetchLocalStorageDownload()
+        
+    }
+    
+    private func fetchLocalStorageDownload() {
+        DataPersistenceManager.shared.fetchTitleFromDatabase { [weak self]result in
+            switch result{
+            case .success(let titles):
+                self?.titles = titles
+                DispatchQueue.main.async {
+                    self?.downloadTable.reloadData()
+                }
+               
+            case .failure(let error):
+                print(error.localizedDescription)
+            
+            }
+        }
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        downloadTable.frame = view.bounds
     }
     
 }
